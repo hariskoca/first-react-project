@@ -6,6 +6,18 @@ import MySentence from "./MySentence";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [arr, setArr] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+  // const arr = []
+  // for (let i = 1; i <= 10; i++) {
+  //   arr.push(i);
+  // }
+
+  const reverseArr = () => {
+    const _arr = [...arr];
+    const reversed = _arr.reverse();
+    setArr(reversed);
+  };
 
   // const osoba = {
   //   name: "Jakub",
@@ -42,16 +54,20 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => setCount((prevValue) => prevValue - 1)}>
+          decrease count {count}
+        </button>
+        <button onClick={() => setCount((prevValue) => prevValue + 1)}>
+          increase count {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button onClick={reverseArr}>Change order</button>
+      {/* Ipravno i sa callback */}
+      {/* <button onClick={() => reverseArr()}>Change order</button> */}
+      {/* <MySentence />
       <MySentence />
       <MySentence />
       <MySentence />
@@ -59,6 +75,17 @@ function App() {
       <MySentence />
       <MySentence />
       <MySentence />
+      <MySentence />
+      <MySentence /> */}
+      {arr.map((num, index) => (
+        <div
+          key={index}
+          style={{ display: "flex", justifyContent: "space-around" }}
+        >
+          <p>{num}. </p>
+          <MySentence number={num} />
+        </div>
+      ))}
     </>
     // </React.Fragment>
   );
