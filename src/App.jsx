@@ -40,7 +40,6 @@ function App() {
   // a+1
   // setCount((prevValue) => prevValue++) NIJE KOREKTNO
   // setCount((prevValue) => prevValue + 3)
-
   return (
     // <React.Fragment>
     <>
